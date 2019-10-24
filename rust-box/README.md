@@ -21,6 +21,10 @@ WebAssembly is an assembly language for a conceptual machine, not a physical one
 
 WebAssembly Reference Types proposal is a way to solve the translation complexity challanges by introducing `anyref`. That way consumers can pass over a pointer to an object and WASM can just pass that along to other JS functions.
 
+For more complex types WebIDL bindings are used.  This provides a mapping from JavaScript types to WebIDL but currently there is no mapping from WebAssembly types to WebIDL (i.e. WASM x String (JS) ->  DOMString (WebIDL), etc...)
+
+Solution is to create a direct mapping from WASM to WebIDL. See WASM GC Proposal - with that WASM will be able to construct complex objects like structs or arrays
+
 ### Benefits
 Using WebAssemlby "Native" modules we can get the benefits of speed without the complexity of target device compilation.
 
@@ -31,3 +35,8 @@ Provides lightweight sandboxing (Code cannot talk directly to the OS) by default
 WA Reference types proposal: https://github.com/WebAssembly/reference-types/blob/master/proposals/reference-types/Overview.md#language-extensions
 
 WASI: https://hacks.mozilla.org/2019/03/standardizing-wasi-a-webassembly-system-interface/
+
+WebIDL bindings: https://developer.mozilla.org/en-US/docs/Mozilla/WebIDL_bindings
+
+WASM GC Proposal: https://github.com/WebAssembly/gc
+
